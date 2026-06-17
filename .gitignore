@@ -1,0 +1,15 @@
+# Arquivos de sistema e temporários
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs e Cache local
+*.log
+.sass-cache/
+.gemini/

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460453752192668"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas Fortes & Verificador de Vazamentos | instantsafepass.com</title>
+    <meta name="description" content="Gere senhas extremamente fortes e seguras de forma totalmente privada ou verifique se suas senhas atuais foram expostas em vazamentos de dados públicos.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Folha de Estilos -->
+    <link rel="stylesheet" href="style.css">
+   </head>
+<body>
+    <div class="glow-bg"></div>
+
+    <header class="app-header">
+        <div class="container header-container">
+            <div class="logo">
+                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <h1>instantsafe<span>pass.com</span></h1>
+            </div>
+            <nav class="nav-tabs" role="tablist">
+                <button class="tab-btn active" id="tab-generator" role="tab" aria-selected="true" aria-controls="panel-generator">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Gerador
+                </button>
+                <button class="tab-btn" id="tab-checker" role="tab" aria-selected="false" aria-controls="panel-checker">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    Verificador
+                </button>
+                <button class="tab-btn" id="tab-tips" role="tab" aria-selected="false" aria-controls="panel-tips">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    Dicas
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <!-- Espaço para anúncio superior (AdSense) -->
+        <div class="adsense-placeholder ads-top" aria-hidden="true">
+            <span class="ads-label">Publicidade</span>
+            <div class="ads-box">Espaço para Banner de Anúncio</div>
+        </div>
+
+        <div class="app-grid">
+            <section class="main-card">
+                <!-- Painel do Gerador -->
+                <div id="panel-generator" class="tab-panel active" role="tabpanel" aria-labelledby="tab-generator">
+                    <h2 class="section-title">Gerador de Senhas Seguras</h2>
+                    <p class="section-desc">Crie senhas fortes, aleatórias e altamente customizáveis de forma instantânea.</p>
+
+                    <div class="display-container">
+                        <input type="text" id="generated-password" class="password-display" readonly value="Gere sua senha abaixo..." aria-label="Senha gerada">
+                        <div class="display-actions">
+                            <button id="btn-copy" class="action-btn" title="Copiar Senha">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-check hidden"><polyline points="20 6 9 17 4 12"/></svg>
+                            </button>
+                            <button id="btn-refresh" class="action-btn" title="Gerar Nova Senha">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Medidor de Força -->
+                    <div class="strength-meter-container">
+                        <div class="strength-labels">
+                            <span>Força da Senha:</span>
+                            <span id="strength-badge" class="strength-badge empty">Aguardando...</span>
+                        </div>
+                        <div class="strength-bar-bg">
+                            <div id="strength-bar" class="strength-bar"></div>
+                        </div>
+                        <div id="entropy-info" class="entropy-info"></div>
+                    </div>
+
+                    <!-- Configurações do Gerador -->
+                    <div class="generator-settings">
+                        <div class="setting-group">
+                            <div class="setting-header">
+                                <label for="password-length">Comprimento da Senha: <span id="length-val">16</span></label>
+                            </div>
+                            <div class="range-slider">
+                                <input type="range" id="password-length" min="8" max="64" value="16" class="slider">
+                            </div>
+                        </div>
+
+                        <div class="checkbox-grid">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="chk-uppercase" checked>
+                                <span class="checkmark"></span>
+                                Letras Maiúsculas (A-Z)
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="chk-lowercase" checked>
+                                <span class="checkmark"></span>
+                                Letras Minúsculas (a-z)
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="chk-numbers" checked>
+                                <span class="checkmark"></span>
+                                Números (0-9)
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="chk-symbols" checked>
+                                <span class="checkmark"></span>
+                                Símbolos (!@#$%)
+                            </label>
+                            <label class="custom-checkbox full-width">
+                                <input type="checkbox" id="chk-exclude-ambiguous">
+                                <span class="checkmark"></span>
+                                Evitar caracteres semelhantes (ex: l, 1, I, o, 0, O)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Histórico local de senhas -->
+                    <div class="history-container">
+                        <div class="history-header">
+                            <h3>Histórico Local</h3>
+                            <button id="btn-clear-history" class="text-btn">Limpar</button>
+                        </div>
+                        <ul id="history-list" class="history-list">
+                            <li class="empty-history">Nenhuma senha no histórico recente.</li>
+                        </ul>
+                        <p class="history-disclaimer">* O histórico é salvo apenas temporariamente nesta sessão de navegação.</p>
+                    </div>
+                </div>
+
+                <!-- Painel do Verificador -->
+                <div id="panel-checker" class="tab-panel" role="tabpanel" aria-labelledby="tab-checker">
+                    <h2 class="section-title">Verificador de Vazamentos</h2>
+                    <p class="section-desc">Consulte de forma totalmente anônima se sua senha foi exposta em algum vazamento de dados conhecido usando a API do *Have I Been Pwned*.</p>
+
+                    <div class="checker-input-container">
+                        <div class="input-wrapper">
+                            <input type="password" id="check-password-input" class="password-input" placeholder="Digite uma senha para testar..." aria-label="Senha para verificar">
+                            <button id="btn-toggle-visibility" class="visibility-btn" title="Mostrar/Ocultar Senha">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-eye-off hidden"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                            </button>
+                        </div>
+                        <button id="btn-verify-leak" class="primary-btn">
+                            <span>Verificar Segurança</span>
+                            <div class="spinner hidden" id="checker-spinner"></div>
+                        </button>
+                    </div>
+
+                    <!-- Medidor de Força em Tempo Real da Senha Digitada -->
+                    <div class="live-strength-container hidden" id="live-strength-box">
+                        <div class="strength-labels">
+                            <span>Força local:</span>
+                            <span id="live-strength-badge" class="strength-badge empty">Aguardando...</span>
+                        </div>
+                        <div class="strength-bar-bg">
+                            <div id="live-strength-bar" class="strength-bar"></div>
+                        </div>
+                    </div>
+
+                    <!-- Estimativa de Brute Force -->
+                    <div class="brute-force-container hidden" id="brute-force-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Tempo estimado para quebra: <strong id="brute-force-time">Calculando...</strong></span>
+                    </div>
+
+                    <!-- Resultados da Verificação -->
+                    <div id="checker-results" class="results-box hidden">
+                        <!-- Será populado dinamicamente via JS -->
+                    </div>
+
+                    <div class="security-privacy-notice">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <p><strong>Nota de Privacidade:</strong> Sua senha é protegida pelo protocolo <em>k-Anonymity</em>. Apenas os primeiros 5 caracteres do hash SHA-1 da senha são enviados ao servidor remoto. Sua senha original nunca deixa seu navegador.</p>
+                    </div>
+                </div>
+
+                <!-- Painel das Dicas -->
+                <div id="panel-tips" class="tab-panel" role="tabpanel" aria-labelledby="tab-tips">
+                    <h2 class="section-title">Higiene Digital & Dicas de Segurança</h2>
+                    <p class="section-desc">Entenda como proteger suas contas e dados com práticas recomendadas por especialistas.</p>
+
+                    <!-- Gerador de Passphrase Interativo -->
+                    <div class="passphrase-card">
+                        <div class="passphrase-header">
+                            <div class="passphrase-title-wrapper">
+                                <svg class="passphrase-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                                <h3>Gerador de Frases de Acesso (Passphrase)</h3>
+                            </div>
+                            <span class="badge-recommended">Recomendado</span>
+                        </div>
+                        <p class="passphrase-desc">Uma frase de acesso combina palavras aleatórias. Elas são incrivelmente difíceis de adivinhar por computadores, mas muito fáceis de memorizar para seres humanos.</p>
+                        
+                        <div class="passphrase-display-container">
+                            <div id="passphrase-display" class="passphrase-display">Carregando frase...</div>
+                            <div class="passphrase-actions">
+                                <button id="btn-copy-passphrase" class="action-btn" title="Copiar Frase">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-copy-pass"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-check-pass hidden"><polyline points="20 6 9 17 4 12"/></svg>
+                                </button>
+                                <button id="btn-refresh-passphrase" class="action-btn" title="Gerar Nova Frase">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-grid">
+                        <article class="tip-card">
+                            <div class="tip-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                            </div>
+                            <h3>Não reutilize senhas</h3>
+                            <p>Utilizar a mesma senha para seu banco, e-mail e redes sociais significa que um único vazamento comprometerá todas as suas contas. Use senhas exclusivas.</p>
+                        </article>
+
+                        <article class="tip-card">
+                            <div class="tip-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                            <h3>Use Gerenciadores de Senhas</h3>
+                            <p>Gerenciadores como Bitwarden, 1Password ou LastPass ajudam a gerar, guardar de forma criptografada e preencher senhas complexas automaticamente.</p>
+                        </article>
+
+                        <article class="tip-card">
+                            <div class="tip-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <h3>Ative Autenticação de Dois Fatores (2FA)</h3>
+                            <p>O 2FA adiciona uma camada de segurança extra. Mesmo se um invasor descobrir sua senha, ele ainda precisará de um código de verificação enviado ao seu celular.</p>
+                        </article>
+
+                        <article class="tip-card">
+                            <div class="tip-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            </div>
+                            <h3>Comprimento vence Complexidade</h3>
+                            <p>Uma senha longa de 16 caracteres (ex: uma frase aleatória) é muito mais difícil de quebrar por força bruta do que uma senha curta de 8 caracteres cheia de símbolos complexos.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sidebar Lateral com Anúncio AdSense e Widget Afiliado -->
+            <aside class="sidebar">
+                <div class="adsense-placeholder ads-sidebar" aria-hidden="true">
+                    <span class="ads-label">Publicidade</span>
+                    <div class="ads-box-vertical">Anúncio Vertical</div>
+                </div>
+
+                <div class="affiliate-card">
+                    <div class="affiliate-badge">Recomendado</div>
+                    <h3>Precisa guardar suas senhas?</h3>
+                    <p>Proteja suas credenciais com segurança militar usando um Gerenciador de Senhas Premium. Acesse de qualquer dispositivo.</p>
+                    <a href="https://bitwarden.com/" target="_blank" rel="noopener noreferrer" class="affiliate-link">Conhecer Bitwarden →</a>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Espaço para anúncio inferior (AdSense) -->
+        <div class="adsense-placeholder ads-bottom" aria-hidden="true">
+            <span class="ads-label">Publicidade</span>
+            <div class="ads-box">Espaço para Banner de Anúncio</div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 instantsafepass.com. Todos os direitos reservados.</p>
+            <nav class="footer-links">
+                <a href="#tab-generator" id="link-to-generator">Gerador</a>
+                <a href="#tab-checker" id="link-to-checker">Verificador</a>
+                <a href="#tab-tips" id="link-to-tips">Dicas de Segurança</a>
+                <a href="termos-uso.html">Termos de Uso</a>
+                <a href="politica-privacidade.html">Política de Privacidade</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Banner de Consentimento de Cookies (LGPD) -->
+    <div id="cookie-consent-banner" class="cookie-banner hidden">
+        <div class="cookie-content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cookie-icon"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z"/><path d="M12 2a4 4 0 0 0-4 4 4 4 0 0 0-4 4"/><circle cx="7.5" cy="13.5" r=".5"/><circle cx="11.5" cy="17.5" r=".5"/><circle cx="16.5" cy="13.5" r=".5"/><circle cx="14.5" cy="9.5" r=".5"/></svg>
+            <p>Utilizamos cookies essenciais e de publicidade (Google AdSense) para melhorar sua experiência. Ao prosseguir, você concorda com nossa <a href="politica-privacidade.html">Política de Privacidade</a>.</p>
+        </div>
+        <button id="btn-accept-cookies" class="primary-btn cookie-accept-btn">Aceitar</button>
+    </div>
+
+    <!-- Script Principal -->
+    <script src="app.js"></script>
+</body>
+</html>
